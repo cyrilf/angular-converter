@@ -21,8 +21,16 @@ describe('Converter app', function() {
   });
 
   it('should switch the units on same units value', function() {
+    // Choose meter
     select('unitIn').option('1');
-    // Out in now
+    // value out is now km so 1 meter = 0.001 km
     expect(input('valueOut').val()).toEqual('0.001');
+  });
+
+  it('should switch correctly the category', function() {
+    // Choose temperature
+    select('category').option('0');
+    // 1 celsius = 33.8 farenheit
+    expect(input('valueOut').val()).toEqual('33.8');
   });
 });

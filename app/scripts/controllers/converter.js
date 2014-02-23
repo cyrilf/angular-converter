@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('converterApp')
-  .controller('ConverterCtrl', ['$scope', 'lengthConverter', function ($scope, lengthConverter) {
+  .controller('ConverterCtrl', ['$scope', 'lengthConverter', 'temperatureConverter', function ($scope, lengthConverter, temperatureConverter) {
     // Var assignements
     $scope.categories = [
-      { value: 'temperature',    text: 'Temperature' },
-      { value: 'length',         text: 'Length' },
+      { value: 'temperature',    text: 'Temperature', converter: temperatureConverter },
+      { value: 'length',         text: 'Length',      converter: lengthConverter },
       { value: 'mass',           text: 'Mass' },
       { value: 'speed',          text: 'Speed' },
       { value: 'volume',         text: 'Volume' },
@@ -18,19 +18,31 @@ angular.module('converterApp')
     $scope.valueIn  = 1;
     $scope.valueOut = undefined;
 
-    $scope.units = [
-      { value: 'kilometer',    text: 'Kilometer' },
-      { value: 'meter',        text: 'Meter' },
-      { value: 'centimeter',   text: 'Centimeter' },
-      { value: 'millimeter',   text: 'Millimeter' },
-      { value: 'mile',         text: 'Mile' },
-      { value: 'yard',         text: 'Yard' },
-      { value: 'foot',         text: 'Foot' },
-      { value: 'inch',         text: 'Inch' },
-      { value: 'nauticalMile', text: 'Nautical mile' }
-    ];
-    $scope.unitIn   = $scope.units[0];
-    $scope.unitOut  = $scope.units[1];
+    $scope.units = {
+      'temperature' : [
+        { value: 'celsius',    text: 'Celsius' },
+        { value: 'fahrenheit', text: 'Fahrenheit' },
+        { value: 'kelvin',     text: 'Kelvin' }
+      ],
+      'length' : [
+        { value: 'kilometer',    text: 'Kilometer' },
+        { value: 'meter',        text: 'Meter' },
+        { value: 'centimeter',   text: 'Centimeter' },
+        { value: 'millimeter',   text: 'Millimeter' },
+        { value: 'mile',         text: 'Mile' },
+        { value: 'yard',         text: 'Yard' },
+        { value: 'foot',         text: 'Foot' },
+        { value: 'inch',         text: 'Inch' },
+        { value: 'nauticalMile', text: 'Nautical mile' }
+      ]
+    };
+
+    $scope.updateUnits = function() {
+      $scope.unitIn  = $scope.units[$scope.category.value][0];
+      $scope.unitOut = $scope.units[$scope.category.value][1];
+    };
+
+    $scope.updateUnits();
 
     // Handle which input is being edited
     $scope.edited = undefined;
@@ -53,7 +65,7 @@ angular.module('converterApp')
 
     // Watcher for the 2 units inputs
     $scope.$watch('unitIn', function(unit, oldUnit) {
-      lengthConverter.setUnitIn(unit.value);
+      $scope.category.converter.setUnitIn(unit.value);
       // If the unit in and out are equal, we switch them
       if(unit.value === $scope.unitOut.value) {
         $scope.unitOut = oldUnit;
@@ -63,7 +75,7 @@ angular.module('converterApp')
     });
 
     $scope.$watch('unitOut', function(unit, oldUnit) {
-      lengthConverter.setUnitOut(unit.value);
+      $scope.category.converter.setUnitOut(unit.value);
       if(unit.value === $scope.unitIn.value) {
         $scope.unitIn = oldUnit;
       }
@@ -72,10 +84,10 @@ angular.module('converterApp')
     });
 
     function updateValueIn(value) {
-      $scope.valueIn = lengthConverter.convert(value, false);
+      $scope.valueIn = $scope.category.converter.convert(value, false);
     }
 
     function updateValueOut(value) {
-      $scope.valueOut = lengthConverter.convert(value);
+      $scope.valueOut = $scope.category.converter.convert(value);
     }
   }]);

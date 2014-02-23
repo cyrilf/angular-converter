@@ -39,8 +39,11 @@ describe('Service: lengthConverter', function () {
 
     lengthConverter.setUnitIn('meter');
     lengthConverter.setUnitOut('yard');
-    expect(lengthConverter.convert(1)).toEqual(1.0936132983377078);
-    expect(lengthConverter.convert(23)).toEqual(25.15310586176728);
+    expect(lengthConverter.convert(1)).toEqual(1.0936);
+    expect(lengthConverter.convert(23)).toEqual(25.1531);
+
+    expect(lengthConverter.convert(50, false)).toEqual(45.72);
+    expect(lengthConverter.convert(-790, false)).toEqual(-722.376);
 
     expect(lengthConverter.convert(0)).toEqual(0);
   });

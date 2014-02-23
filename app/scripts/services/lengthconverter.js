@@ -34,7 +34,9 @@ angular.module('converterApp')
         ratio = this.rules[this.unitOut] / this.rules[this.unitIn];
       }
 
-      return ratio * value;
+      var result = ratio * value;
+
+      return +(Math.round(result + 'e+4') + 'e-4');
     };
 
 
