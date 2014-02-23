@@ -17,8 +17,8 @@ describe('Controller: ConverterCtrl', function () {
   }));
 
   it('should have default model set to valid values', function () {
-    expect(scope.valueIn).toBe(1);
-    expect(scope.unitIn.value).toBe('kilometer');
-    expect(scope.unitOut.value).toBe('meter');
+    expect(scope.valueIn).toEqual(1);
+    expect(scope.unitIn.value).toEqual('kilometer');
+    expect(scope.unitOut.value).toEqual('meter');
   });
 });
