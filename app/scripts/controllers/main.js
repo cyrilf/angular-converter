@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('converterApp')
-  .controller('ConverterCtrl', function ($scope) {
+  .controller('ConverterCtrl', ['$scope', 'lengthConverter', function ($scope, lengthConverter) {
     // Var assignements
     $scope.categories = [
       { value: 'temperature',    text: 'Temperature' },
@@ -15,7 +15,7 @@ angular.module('converterApp')
     ];
     $scope.category = $scope.categories[1];
 
-    $scope.valueIn  = 5;
+    $scope.valueIn  = 1;
     $scope.valueOut = undefined;
 
     $scope.units = [
@@ -41,13 +41,32 @@ angular.module('converterApp')
     // Watcher for the 2 value inputs
     $scope.$watch('valueIn', function(value) {
       if($scope.edited === 'in') {
-        $scope.valueOut = +value + 3;
+        updateValueOut(value);
       }
     });
 
     $scope.$watch('valueOut', function(value) {
       if($scope.edited === 'out') {
-        $scope.valueIn = +value - 3;
+        updateValueIn(value);
       }
     });
-  });
+
+    // Watcher for the 2 units inputs
+    $scope.$watch('unitIn', function(unit) {
+      lengthConverter.setUnitIn(unit.value);
+      updateValueOut($scope.valueIn);
+    });
+
+    $scope.$watch('unitOut', function(unit) {
+      lengthConverter.setUnitOut(unit.value);
+      updateValueOut($scope.valueIn);
+    });
+
+    function updateValueIn(value) {
+      $scope.valueIn = lengthConverter.convert(value, false);
+    }
+
+    function updateValueOut(value) {
+      $scope.valueOut = lengthConverter.convert(value);
+    }
+  }]);
