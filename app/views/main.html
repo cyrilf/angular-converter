@@ -1,0 +1,22 @@
+<div class="header">
+  <h3 class="text-muted">Converter</h3>
+</div>
+
+<div class="jumbotron">
+  <p class="lead">
+    Convert from {{ unitIn.text }} to {{ unitOut.text }}
+  </p>
+  <select ng-model="category"
+          ng-options="category.text for category in categories" />
+  <br>
+  <input type="text" ng-model="valueIn" ng-change="markEdited('in')">
+  <select ng-model="unitIn"
+          ng-options="unit.text for unit in units" />
+  <input type="text" ng-model="valueOut" ng-change="markEdited('out')">
+  <select ng-model="unitOut"
+          ng-options="unit.text for unit in units" />
+</div>
+
+<div class="footer">
+  <p>♥ from the Converter team</p>
+</div>
