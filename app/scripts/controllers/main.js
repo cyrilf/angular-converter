@@ -52,13 +52,22 @@ angular.module('converterApp')
     });
 
     // Watcher for the 2 units inputs
-    $scope.$watch('unitIn', function(unit) {
+    $scope.$watch('unitIn', function(unit, oldUnit) {
       lengthConverter.setUnitIn(unit.value);
+      // If the unit in and out are equal, we switch them
+      if(unit.value === $scope.unitOut.value) {
+        $scope.unitOut = oldUnit;
+      }
+
       updateValueOut($scope.valueIn);
     });
 
-    $scope.$watch('unitOut', function(unit) {
+    $scope.$watch('unitOut', function(unit, oldUnit) {
       lengthConverter.setUnitOut(unit.value);
+      if(unit.value === $scope.unitIn.value) {
+        $scope.unitIn = oldUnit;
+      }
+
       updateValueOut($scope.valueIn);
     });
 
