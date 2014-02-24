@@ -1,21 +1,17 @@
 'use strict';
 
 angular.module('converterApp')
-  .service('lengthConverter', function LengthConverter() {
-    this.unitIn  = 'kilometer';
-    this.unitOut = 'meter';
+  .service('speedConverter', function speedConverter() {
+    this.unitIn  = 'milesHour';
+    this.unitOut = 'feetSec';
 
     // Conversion rules
     this.rules = {
-      kilometer    : 1000,
-      meter        : 1,
-      centimeter   : 0.01,
-      millimeter   : 0.001,
-      mile         : 1609.34,
-      yard         : 0.9144,
-      foot         : 0.3048,
-      inch         : 0.0254,
-      nauticalMile : 1852
+      milesHour : 1.60934,
+      feetSec   : 1.09728,
+      metersSec : 3.6,
+      kmHour    : 1,
+      knot      : 1.852
     };
 
     /**

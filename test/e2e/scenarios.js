@@ -96,4 +96,27 @@ describe('Converter app', function() {
       expect(input('valueOut').val()).toEqual('811.4048');
     });
   });
+
+  describe('Speed converter', function() {
+    beforeEach(function() {
+      // Choose speed
+      select('category').option('3');
+    });
+
+    it('should switch correctly the category to speed', function() {
+      // 1 miles/hour = 1.4667 feet/sec
+      expect(input('valueOut').val()).toEqual('1.4667');
+    });
+
+    it('should correctly convert speed', function() {
+      // Choose km/hour
+      select('unitIn').option('3');
+      // Choose meter/sec
+      select('unitOut').option('2');
+      // Set 23 km/hour
+      input('valueIn').enter('23');
+      // 23 km/hour = 0.2778 meter/sec
+      expect(input('valueOut').val()).toEqual('6.3889');
+    });
+  });
 });

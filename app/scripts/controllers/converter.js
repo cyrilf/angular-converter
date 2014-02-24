@@ -2,14 +2,14 @@
 
 angular.module('converterApp')
   .controller('ConverterCtrl', ['$scope',
-                                'lengthConverter', 'temperatureConverter', 'massConverter',
-                                function ($scope, lengthConverter, temperatureConverter, massConverter) {
+                                'lengthConverter', 'temperatureConverter', 'massConverter', 'speedConverter',
+                                function ($scope, lengthConverter, temperatureConverter, massConverter, speedConverter) {
     // Var assignements
     $scope.categories = [
       { value: 'temperature'    , text: 'Temperature'       , converter: temperatureConverter },
       { value: 'length'         , text: 'Length'            , converter: lengthConverter },
       { value: 'mass'           , text: 'Mass'              , converter: massConverter },
-      { value: 'speed'          , text: 'Speed' },
+      { value: 'speed'          , text: 'Speed'             , converter: speedConverter },
       { value: 'volume'         , text: 'Volume' },
       { value: 'area'           , text: 'Area' },
       { value: 'time'           , text: 'Time' },
@@ -22,32 +22,39 @@ angular.module('converterApp')
 
     $scope.units = {
       'temperature' : [
-        { value: 'celsius'    , text:  'Celsius' },
-        { value: 'fahrenheit' , text:     'Fahrenheit' },
-        { value: 'kelvin'     , text: 'Kelvin' }
+        { value: 'celsius'    , text: 'Celsius'    },
+        { value: 'fahrenheit' , text: 'Fahrenheit' },
+        { value: 'kelvin'     , text: 'Kelvin'     }
       ],
       'length' : [
-        { value: 'kilometer'    , text: 'Kilometer' },
-        { value: 'meter'        , text: 'Meter' },
-        { value: 'centimeter'   , text: 'Centimeter' },
-        { value: 'millimeter'   , text: 'Millimeter' },
-        { value: 'mile'         , text: 'Mile' },
-        { value: 'yard'         , text: 'Yard' },
-        { value: 'foot'         , text: 'Foot' },
-        { value: 'inch'         , text: 'Inch' },
+        { value: 'kilometer'    , text: 'Kilometer'     },
+        { value: 'meter'        , text: 'Meter'         },
+        { value: 'centimeter'   , text: 'Centimeter'    },
+        { value: 'millimeter'   , text: 'Millimeter'    },
+        { value: 'mile'         , text: 'Mile'          },
+        { value: 'yard'         , text: 'Yard'          },
+        { value: 'foot'         , text: 'Foot'          },
+        { value: 'inch'         , text: 'Inch'          },
         { value: 'nauticalMile' , text: 'Nautical mile' }
       ],
       'mass' : [
         { value: 'metricTon' , text: 'Metric ton' },
-        { value: 'kilogram'  , text: 'Kilogram' },
-        { value: 'gram'      , text: 'Gram' },
-        { value: 'milligram' , text: 'Milligram' },
-        { value: 'mcg'       , text: 'Microgram' },
-        { value: 'longTon'   , text: 'Long ton' },
-        { value: 'shortTon'  , text: 'Short ton' },
-        { value: 'stone'     , text: 'Stone' },
-        { value: 'pound'     , text: 'Pound' },
-        { value: 'ounce'     , text: 'Ounce' },
+        { value: 'kilogram'  , text: 'Kilogram'   },
+        { value: 'gram'      , text: 'Gram'       },
+        { value: 'milligram' , text: 'Milligram'  },
+        { value: 'mcg'       , text: 'Microgram'  },
+        { value: 'longTon'   , text: 'Long ton'   },
+        { value: 'shortTon'  , text: 'Short ton'  },
+        { value: 'stone'     , text: 'Stone'      },
+        { value: 'pound'     , text: 'Pound'      },
+        { value: 'ounce'     , text: 'Ounce'      }
+      ],
+      'speed' : [
+        { value: 'milesHour' , text: 'Miles/hour'      },
+        { value: 'feetSec'   , text: 'Feet/sec'        },
+        { value: 'metersSec' , text: 'Meters/sec'      },
+        { value: 'kmHour'    , text: 'Kilometers/hour' },
+        { value: 'knot'      , text: 'Knot'            }
       ]
     };
 
