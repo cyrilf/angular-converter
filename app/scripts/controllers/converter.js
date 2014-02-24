@@ -1,17 +1,19 @@
 'use strict';
 
 angular.module('converterApp')
-  .controller('ConverterCtrl', ['$scope', 'lengthConverter', 'temperatureConverter', function ($scope, lengthConverter, temperatureConverter) {
+  .controller('ConverterCtrl', ['$scope',
+                                'lengthConverter', 'temperatureConverter', 'massConverter',
+                                function ($scope, lengthConverter, temperatureConverter, massConverter) {
     // Var assignements
     $scope.categories = [
-      { value: 'temperature',    text: 'Temperature', converter: temperatureConverter },
-      { value: 'length',         text: 'Length',      converter: lengthConverter },
-      { value: 'mass',           text: 'Mass' },
-      { value: 'speed',          text: 'Speed' },
-      { value: 'volume',         text: 'Volume' },
-      { value: 'area',           text: 'Area' },
-      { value: 'time',           text: 'Time' },
-      { value: 'digitalStorage', text: 'Digital storage' }
+      { value: 'temperature'    , text: 'Temperature'       , converter: temperatureConverter },
+      { value: 'length'         , text: 'Length'            , converter: lengthConverter },
+      { value: 'mass'           , text: 'Mass'              , converter: massConverter },
+      { value: 'speed'          , text: 'Speed' },
+      { value: 'volume'         , text: 'Volume' },
+      { value: 'area'           , text: 'Area' },
+      { value: 'time'           , text: 'Time' },
+      { value: 'digitalStorage' , text: 'Digital storage' }
     ];
     $scope.category = $scope.categories[1];
 
@@ -20,20 +22,32 @@ angular.module('converterApp')
 
     $scope.units = {
       'temperature' : [
-        { value: 'celsius',    text: 'Celsius' },
-        { value: 'fahrenheit', text: 'Fahrenheit' },
-        { value: 'kelvin',     text: 'Kelvin' }
+        { value: 'celsius'    , text:  'Celsius' },
+        { value: 'fahrenheit' , text:     'Fahrenheit' },
+        { value: 'kelvin'     , text: 'Kelvin' }
       ],
       'length' : [
-        { value: 'kilometer',    text: 'Kilometer' },
-        { value: 'meter',        text: 'Meter' },
-        { value: 'centimeter',   text: 'Centimeter' },
-        { value: 'millimeter',   text: 'Millimeter' },
-        { value: 'mile',         text: 'Mile' },
-        { value: 'yard',         text: 'Yard' },
-        { value: 'foot',         text: 'Foot' },
-        { value: 'inch',         text: 'Inch' },
-        { value: 'nauticalMile', text: 'Nautical mile' }
+        { value: 'kilometer'    , text: 'Kilometer' },
+        { value: 'meter'        , text: 'Meter' },
+        { value: 'centimeter'   , text: 'Centimeter' },
+        { value: 'millimeter'   , text: 'Millimeter' },
+        { value: 'mile'         , text: 'Mile' },
+        { value: 'yard'         , text: 'Yard' },
+        { value: 'foot'         , text: 'Foot' },
+        { value: 'inch'         , text: 'Inch' },
+        { value: 'nauticalMile' , text: 'Nautical mile' }
+      ],
+      'mass' : [
+        { value: 'metricTon' , text: 'Metric ton' },
+        { value: 'kilogram'  , text: 'Kilogram' },
+        { value: 'gram'      , text: 'Gram' },
+        { value: 'milligram' , text: 'Milligram' },
+        { value: 'mcg'       , text: 'Microgram' },
+        { value: 'longTon'   , text: 'Long ton' },
+        { value: 'shortTon'  , text: 'Short ton' },
+        { value: 'stone'     , text: 'Stone' },
+        { value: 'pound'     , text: 'Pound' },
+        { value: 'ounce'     , text: 'Ounce' },
       ]
     };
 

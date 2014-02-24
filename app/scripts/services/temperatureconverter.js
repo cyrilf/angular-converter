@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('converterApp')
-  .service('temperatureConverter', function LengthConverter() {
+  .service('temperatureConverter', function temperatureConverter() {
     this.unitIn = 'celsius';
     this.unitOut = 'fahrenheit';
 
