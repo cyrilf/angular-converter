@@ -1,14 +1,15 @@
 'use strict';
 
-describe('Service: speedConverter', function () {
+describe('Service: SpeedConverter', function () {
 
   // load the service's module
   beforeEach(module('converterApp'));
 
   // instantiate service
-  var speedConverter;
-  beforeEach(inject(function (_speedConverter_) {
-    speedConverter = _speedConverter_;
+  var SpeedConverter, speedConverter;
+  beforeEach(inject(function (_SpeedConverter_) {
+    SpeedConverter = _SpeedConverter_;
+    speedConverter = new SpeedConverter();
     speedConverter.setUnitIn('milesHour');
     speedConverter.setUnitOut('feetSec');
   }));

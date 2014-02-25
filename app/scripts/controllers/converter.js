@@ -1,18 +1,17 @@
 'use strict';
 
 angular.module('converterApp')
-  .controller('ConverterCtrl', ['$scope',
-                                'lengthConverter', 'temperatureConverter', 'massConverter', 'speedConverter',
-                                function ($scope, lengthConverter, temperatureConverter, massConverter, speedConverter) {
+  .controller('ConverterCtrl', ['$scope', 'converterManager',
+                                function ($scope, converterManager) {
     // Var assignements
     $scope.categories = [
-      { value: 'temperature'    , text: 'Temperature'       , converter: temperatureConverter },
-      { value: 'length'         , text: 'Length'            , converter: lengthConverter },
-      { value: 'mass'           , text: 'Mass'              , converter: massConverter },
-      { value: 'speed'          , text: 'Speed'             , converter: speedConverter },
-      { value: 'volume'         , text: 'Volume' },
-      { value: 'area'           , text: 'Area' },
-      { value: 'time'           , text: 'Time' },
+      { value: 'temperature'    , text: 'Temperature'     },
+      { value: 'length'         , text: 'Length'          },
+      { value: 'mass'           , text: 'Mass'            },
+      { value: 'speed'          , text: 'Speed'           },
+      { value: 'volume'         , text: 'Volume'          },
+      { value: 'area'           , text: 'Area'            },
+      { value: 'time'           , text: 'Time'            },
       { value: 'digitalStorage' , text: 'Digital storage' }
     ];
     $scope.category = $scope.categories[1];
@@ -86,7 +85,9 @@ angular.module('converterApp')
 
     // Watcher for the 2 units inputs
     $scope.$watch('unitIn', function(unit, oldUnit) {
-      $scope.category.converter.setUnitIn(unit.value);
+      // Retrieve the current converter (based on the category)
+      var converter = converterManager.getConverter($scope.category.value);
+      converter.setUnitIn(unit.value);
       // If the unit in and out are equal, we switch them
       if(unit.value === $scope.unitOut.value) {
         $scope.unitOut = oldUnit;
@@ -96,7 +97,8 @@ angular.module('converterApp')
     });
 
     $scope.$watch('unitOut', function(unit, oldUnit) {
-      $scope.category.converter.setUnitOut(unit.value);
+      var converter = converterManager.getConverter($scope.category.value);
+      converter.setUnitOut(unit.value);
       if(unit.value === $scope.unitIn.value) {
         $scope.unitIn = oldUnit;
       }
@@ -105,10 +107,12 @@ angular.module('converterApp')
     });
 
     function updateValueIn(value) {
-      $scope.valueIn = $scope.category.converter.convert(value, false);
+      var converter = converterManager.getConverter($scope.category.value);
+      $scope.valueIn = converter.convert(value, false);
     }
 
     function updateValueOut(value) {
-      $scope.valueOut = $scope.category.converter.convert(value);
+      var converter = converterManager.getConverter($scope.category.value);
+      $scope.valueOut = converter.convert(value);
     }
   }]);

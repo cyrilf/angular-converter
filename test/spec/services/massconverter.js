@@ -1,14 +1,15 @@
 'use strict';
 
-describe('Service: massConverter', function () {
+describe('Service: MassConverter', function () {
 
   // load the service's module
   beforeEach(module('converterApp'));
 
   // instantiate service
-  var massConverter;
-  beforeEach(inject(function (_massConverter_) {
-    massConverter = _massConverter_;
+  var MassConverter, massConverter;
+  beforeEach(inject(function (_MassConverter_) {
+    MassConverter = _MassConverter_;
+    massConverter = new MassConverter();
     massConverter.setUnitIn('metricTon');
     massConverter.setUnitOut('kilogram');
   }));

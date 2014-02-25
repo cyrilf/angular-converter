@@ -4,7 +4,8 @@ angular.module('converterApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'Class'
 ])
   .config(function ($routeProvider) {
     $routeProvider

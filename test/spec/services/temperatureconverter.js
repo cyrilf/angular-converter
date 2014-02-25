@@ -1,14 +1,15 @@
 'use strict';
 
-describe('Service: temperatureConverter', function () {
+describe('Service: TemperatureConverter', function () {
 
   // load the service's module
   beforeEach(module('converterApp'));
 
   // instantiate service
-  var temperatureConverter;
-  beforeEach(inject(function (_temperatureConverter_) {
-    temperatureConverter = _temperatureConverter_;
+  var TemperatureConverter, temperatureConverter;
+  beforeEach(inject(function (_TemperatureConverter_) {
+    TemperatureConverter = _TemperatureConverter_;
+    temperatureConverter = new TemperatureConverter();
     temperatureConverter.setUnitIn('celsius');
     temperatureConverter.setUnitOut('fahrenheit');
   }));

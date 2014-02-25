@@ -1,14 +1,15 @@
 'use strict';
 
-describe('Service: lengthConverter', function () {
+describe('Factory: LengthConverter', function () {
 
   // load the service's module
   beforeEach(module('converterApp'));
 
   // instantiate service
-  var lengthConverter;
-  beforeEach(inject(function (_lengthConverter_) {
-    lengthConverter = _lengthConverter_;
+  var LengthConverter, lengthConverter;
+  beforeEach(inject(function (_LengthConverter_) {
+    LengthConverter = _LengthConverter_;
+    lengthConverter = new LengthConverter();
     lengthConverter.setUnitIn('kilometer');
     lengthConverter.setUnitOut('meter');
   }));
