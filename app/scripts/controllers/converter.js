@@ -56,24 +56,34 @@ angular.module('converterApp')
         { value: 'knot'      , text: 'Knot'            }
       ],
       'volume' : [
-        { value: 'usGallon'       , text : 'US gallon'           },
-        { value: 'usQuart'        , text : 'US quart'            },
-        { value: 'usPint'         , text : 'US pint'             },
-        { value: 'usCup'          , text : 'US cup'              },
-        { value: 'usOunce'        , text : 'US ounce'             },
-        { value: 'usTbsp'         , text : 'US tablespoon'       },
-        { value: 'usTsp'          , text : 'US teaspoon'         },
-        { value: 'cubicMeter'     , text : 'Cubic meter'         },
-        { value: 'liter'          , text : 'Liter'               },
-        { value: 'milliliter'     , text : 'Milliliter'         },
-        { value: 'imperialGallon' , text : 'Imperial gallon'     },
-        { value: 'imperialQuart'  , text : 'Imperial quart'      },
-        { value: 'imperialPint'   , text : 'Imperial pint'       },
-        { value: 'imperialOunce'  , text : 'Imperial ounce'      },
-        { value: 'imperialTbsp'   , text : 'Imperial tablespoon' },
-        { value: 'imperialTsp'    , text : 'Imperial teaspoon'   },
-        { value: 'cubicFoot'      , text : 'Cubic foot'          },
-        { value: 'cubicInch'      , text : 'Cubic inch'          }
+        { value: 'usGallon'       , text: 'US gallon'           },
+        { value: 'usQuart'        , text: 'US quart'            },
+        { value: 'usPint'         , text: 'US pint'             },
+        { value: 'usCup'          , text: 'US cup'              },
+        { value: 'usOunce'        , text: 'US ounce'             },
+        { value: 'usTbsp'         , text: 'US tablespoon'       },
+        { value: 'usTsp'          , text: 'US teaspoon'         },
+        { value: 'cubicMeter'     , text: 'Cubic meter'         },
+        { value: 'liter'          , text: 'Liter'               },
+        { value: 'milliliter'     , text: 'Milliliter'         },
+        { value: 'imperialGallon' , text: 'Imperial gallon'     },
+        { value: 'imperialQuart'  , text: 'Imperial quart'      },
+        { value: 'imperialPint'   , text: 'Imperial pint'       },
+        { value: 'imperialOunce'  , text: 'Imperial ounce'      },
+        { value: 'imperialTbsp'   , text: 'Imperial tablespoon' },
+        { value: 'imperialTsp'    , text: 'Imperial teaspoon'   },
+        { value: 'cubicFoot'      , text: 'Cubic foot'          },
+        { value: 'cubicInch'      , text: 'Cubic inch'          }
+      ],
+      'area' : [
+        { value: 'squareKm'    , text: 'Square km'    },
+        { value: 'hectare'     , text: 'Hectare'      },
+        { value: 'squareMeter' , text: 'Square meter' },
+        { value: 'squareMile'  , text: 'Square mile'  },
+        { value: 'acre'        , text: 'Acre'         },
+        { value: 'squareYard'  , text: 'Square yard'  },
+        { value: 'squareFoot'  , text: 'Square foot'  },
+        { value: 'squareInch'  , text: 'Square inch'  }
       ]
     };
 

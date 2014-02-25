@@ -1,14 +1,15 @@
 'use strict';
 
 angular.module('converterApp')
-  .service('converterManager', ['LengthConverter', 'TemperatureConverter', 'MassConverter', 'SpeedConverter', 'VolumeConverter',
-                                function converterManager(LengthConverter, TemperatureConverter, MassConverter, SpeedConverter, VolumeConverter) {
+  .service('converterManager', ['LengthConverter', 'TemperatureConverter', 'MassConverter', 'SpeedConverter', 'VolumeConverter', 'AreaConverter',
+                                function converterManager(LengthConverter, TemperatureConverter, MassConverter, SpeedConverter, VolumeConverter, AreaConverter) {
     this.converters = {
       'length'      : new LengthConverter(),
       'temperature' : new TemperatureConverter(),
       'mass'        : new MassConverter(),
       'speed'       : new SpeedConverter(),
-      'volume'       : new VolumeConverter()
+      'volume'      : new VolumeConverter(),
+      'area'        : new AreaConverter()
     };
 
     /**

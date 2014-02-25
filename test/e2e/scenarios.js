@@ -142,4 +142,27 @@ describe('Converter app', function() {
       expect(input('valueOut').val()).toEqual('1555.4413');
     });
   });
+
+  describe('Area converter', function() {
+    beforeEach(function() {
+      // Choose area
+      select('category').option('5');
+    });
+
+    it('should switch correctly the category to area', function() {
+      // 1 square km = 100 hectare
+      expect(input('valueOut').val()).toEqual('100');
+    });
+
+    it('should correctly convert area', function() {
+      // Choose acre
+      select('unitIn').option('4');
+      // Choose square foot
+      select('unitOut').option('6');
+      // Set 7 acre
+      input('valueIn').enter('7');
+      // 7 acre = 304920 square foot
+      expect(input('valueOut').val()).toEqual('304920.4008');
+    });
+  });
 });
