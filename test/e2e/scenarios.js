@@ -119,4 +119,27 @@ describe('Converter app', function() {
       expect(input('valueOut').val()).toEqual('6.3889');
     });
   });
+
+  describe('Volume converter', function() {
+    beforeEach(function() {
+      // Choose volume
+      select('category').option('4');
+    });
+
+    it('should switch correctly the category to volume', function() {
+      // 1 us gallon = 4 us quart
+      expect(input('valueOut').val()).toEqual('4');
+    });
+
+    it('should correctly convert volume', function() {
+      // Choose liter
+      select('unitIn').option('8');
+      // Choose us tablespoon
+      select('unitOut').option('5');
+      // Set 23 liter
+      input('valueIn').enter('23');
+      // 23 liter = 1555.4413 us tablespoon
+      expect(input('valueOut').val()).toEqual('1555.4413');
+    });
+  });
 });
