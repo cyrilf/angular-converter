@@ -188,4 +188,27 @@ describe('Converter app', function() {
       expect(input('valueOut').val()).toEqual('365.2416');
     });
   });
+
+  describe('Digital storage converter', function() {
+    beforeEach(function() {
+      // Choose digital storage
+      select('category').option('7');
+    });
+
+    it('should switch correctly the category to digital storage', function() {
+      // 1 bit = 0.125 byte
+      expect(input('valueOut').val()).toEqual('0.125');
+    });
+
+    it('should correctly convert digital storage', function() {
+      // Choose gigabit
+      select('unitIn').option('6');
+      // Choose megabit
+      select('unitOut').option('4');
+      // Set 8 gigabit
+      input('valueIn').enter('8');
+      // 8 gigabit = 8192 megabit
+      expect(input('valueOut').val()).toEqual('8192');
+    });
+  });
 });

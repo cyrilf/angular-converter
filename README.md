@@ -13,7 +13,7 @@ The converters currently available are:
  - Temperature
  - Volume
  - Time
- - Digital Storage (coming soon)
+ - Digital Storage
 
 
 Generated with [Yeoman](http://yeoman.io) angular app

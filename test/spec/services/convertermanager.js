@@ -15,8 +15,8 @@ describe('Service: converterManager', function () {
     expect(!!converterManager).toBe(true);
   });
 
-  it('should have 7 converters defined', function() {
-    expect(Object.keys(converterManager.converters).length).toEqual(7);
+  it('should have 8 converters defined', function() {
+    expect(Object.keys(converterManager.converters).length).toEqual(8);
   });
 
   it('should return the first converter if the one requested doesn\'t exist', function() {

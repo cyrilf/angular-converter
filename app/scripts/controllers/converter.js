@@ -60,12 +60,12 @@ angular.module('converterApp')
         { value: 'usQuart'        , text: 'US quart'            },
         { value: 'usPint'         , text: 'US pint'             },
         { value: 'usCup'          , text: 'US cup'              },
-        { value: 'usOunce'        , text: 'US ounce'             },
+        { value: 'usOunce'        , text: 'US ounce'            },
         { value: 'usTbsp'         , text: 'US tablespoon'       },
         { value: 'usTsp'          , text: 'US teaspoon'         },
         { value: 'cubicMeter'     , text: 'Cubic meter'         },
         { value: 'liter'          , text: 'Liter'               },
-        { value: 'milliliter'     , text: 'Milliliter'         },
+        { value: 'milliliter'     , text: 'Milliliter'          },
         { value: 'imperialGallon' , text: 'Imperial gallon'     },
         { value: 'imperialQuart'  , text: 'Imperial quart'      },
         { value: 'imperialPint'   , text: 'Imperial pint'       },
@@ -98,6 +98,20 @@ angular.module('converterApp')
         { value: 'year'        , text: 'Year'        },
         { value: 'decade'      , text: 'Decade'      },
         { value: 'century'     , text: 'Century'     }
+      ],
+      'digitalStorage': [
+        { value: 'bit'      , text: 'Bit'      },
+        { value: 'byte'     , text: 'Byte'     },
+        { value: 'kilobit'  , text: 'Kilobit'  },
+        { value: 'kilobyte' , text: 'Kilobyte' },
+        { value: 'megabit'  , text: 'Megabit'  },
+        { value: 'megabyte' , text: 'Megabyte' },
+        { value: 'gigabit'  , text: 'Gigabit'  },
+        { value: 'gigabyte' , text: 'Gigabyte' },
+        { value: 'terabit'  , text: 'Terabit'  },
+        { value: 'terabyte' , text: 'Terabyte' },
+        { value: 'petabit'  , text: 'Petabit'  },
+        { value: 'petabyte' , text: 'Petabyte' }
       ]
     };
 
