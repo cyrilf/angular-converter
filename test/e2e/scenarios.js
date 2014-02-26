@@ -165,4 +165,27 @@ describe('Converter app', function() {
       expect(input('valueOut').val()).toEqual('304920.4008');
     });
   });
+
+  describe('Time converter', function() {
+    beforeEach(function() {
+      // Choose time
+      select('category').option('6');
+    });
+
+    it('should switch correctly the category to time', function() {
+      // 1 nanosecond = 0.001 microsecond
+      expect(input('valueOut').val()).toEqual('0.001');
+    });
+
+    it('should correctly convert area', function() {
+      // Choose month
+      select('unitIn').option('8');
+      // Choose day
+      select('unitOut').option('6');
+      // Set 12 month
+      input('valueIn').enter('12');
+      // 12 month = 365.2416 day
+      expect(input('valueOut').val()).toEqual('365.2416');
+    });
+  });
 });

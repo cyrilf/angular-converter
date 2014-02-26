@@ -12,7 +12,7 @@ The converters currently available are:
  - Speed
  - Temperature
  - Volume
- - Time (coming soon)
+ - Time
  - Digital Storage (coming soon)
 
 

@@ -20,12 +20,12 @@ angular.module('converterApp')
     $scope.valueOut = undefined;
 
     $scope.units = {
-      'temperature' : [
+      'temperature': [
         { value: 'celsius'    , text: 'Celsius'    },
         { value: 'fahrenheit' , text: 'Fahrenheit' },
         { value: 'kelvin'     , text: 'Kelvin'     }
       ],
-      'length' : [
+      'length': [
         { value: 'kilometer'    , text: 'Kilometer'     },
         { value: 'meter'        , text: 'Meter'         },
         { value: 'centimeter'   , text: 'Centimeter'    },
@@ -36,7 +36,7 @@ angular.module('converterApp')
         { value: 'inch'         , text: 'Inch'          },
         { value: 'nauticalMile' , text: 'Nautical mile' }
       ],
-      'mass' : [
+      'mass': [
         { value: 'metricTon' , text: 'Metric ton' },
         { value: 'kilogram'  , text: 'Kilogram'   },
         { value: 'gram'      , text: 'Gram'       },
@@ -48,14 +48,14 @@ angular.module('converterApp')
         { value: 'pound'     , text: 'Pound'      },
         { value: 'ounce'     , text: 'Ounce'      }
       ],
-      'speed' : [
+      'speed': [
         { value: 'milesHour' , text: 'Miles/hour'      },
         { value: 'feetSec'   , text: 'Feet/sec'        },
         { value: 'metersSec' , text: 'Meters/sec'      },
         { value: 'kmHour'    , text: 'Kilometers/hour' },
         { value: 'knot'      , text: 'Knot'            }
       ],
-      'volume' : [
+      'volume': [
         { value: 'usGallon'       , text: 'US gallon'           },
         { value: 'usQuart'        , text: 'US quart'            },
         { value: 'usPint'         , text: 'US pint'             },
@@ -75,7 +75,7 @@ angular.module('converterApp')
         { value: 'cubicFoot'      , text: 'Cubic foot'          },
         { value: 'cubicInch'      , text: 'Cubic inch'          }
       ],
-      'area' : [
+      'area': [
         { value: 'squareKm'    , text: 'Square km'    },
         { value: 'hectare'     , text: 'Hectare'      },
         { value: 'squareMeter' , text: 'Square meter' },
@@ -84,6 +84,20 @@ angular.module('converterApp')
         { value: 'squareYard'  , text: 'Square yard'  },
         { value: 'squareFoot'  , text: 'Square foot'  },
         { value: 'squareInch'  , text: 'Square inch'  }
+      ],
+      'time': [
+        { value: 'nanosecond'  , text: 'Nanosecond'  },
+        { value: 'microsecond' , text: 'Microsecond' },
+        { value: 'millisecond' , text: 'Millisecond' },
+        { value: 'second'      , text: 'Second'      },
+        { value: 'minute'      , text: 'Minute'      },
+        { value: 'hour'        , text: 'Hour'        },
+        { value: 'day'         , text: 'Day'         },
+        { value: 'week'        , text: 'Week'        },
+        { value: 'month'       , text: 'Month'       },
+        { value: 'year'        , text: 'Year'        },
+        { value: 'decade'      , text: 'Decade'      },
+        { value: 'century'     , text: 'Century'     }
       ]
     };
 
