@@ -1,0 +1,10 @@
+<select ng-model="category"
+        ng-change="updateUnits()"
+        ng-options="category.text for category in categories" />
+<br>
+<input type="text" ng-model="valueIn" ng-change="markEdited('in')">
+<select ng-model="unitIn"
+        ng-options="unit.text for unit in units[category.value]" />
+<input type="text" ng-model="valueOut" ng-change="markEdited('out')">
+<select ng-model="unitOut"
+        ng-options="unit.text for unit in units[category.value]" />
