@@ -24,6 +24,11 @@ angular.module('converterApp')
       return this.converters[type] || this.converters[Object.keys(this.converters)[0]];
     };
 
+    /**
+     * Return a categories array
+     * Loop through all converters and push a new category element
+     * @return {Array} list of categories
+     */
     this.getCategories = function() {
       var categories = [],
           category;

@@ -1,9 +1,6 @@
 'use strict';
 
 angular.module('converterApp', [
-  'ngCookies',
-  'ngResource',
-  'ngSanitize',
   'ngRoute',
   'Class'
 ])

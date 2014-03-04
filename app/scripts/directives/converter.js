@@ -15,6 +15,17 @@ angular.module('converterApp')
 
         scope.units = [];
 
+        // Handle which input is being edited
+        scope.edited = undefined;
+        scope.markEdited = function(which) {
+          scope.edited = which;
+        };
+
+        /**
+         * Watchers for the inputs
+         */
+
+        // Watch for the category select change
         scope.$watch('category', function(category) {
           scope.currentConverter = converterManager.getConverter(category.value);
           scope.units   = scope.currentConverter.getUnitsSelect();
@@ -24,12 +35,6 @@ angular.module('converterApp')
           scope.unitIn  = scope.units[0];
           scope.unitOut = scope.units[1];
         });
-
-        // Handle which input is being edited
-        scope.edited = undefined;
-        scope.markEdited = function(which) {
-          scope.edited = which;
-        };
 
         // Watcher for the 2 value inputs
         scope.$watch('valueIn', function(value) {

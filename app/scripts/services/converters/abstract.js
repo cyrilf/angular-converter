@@ -41,6 +41,10 @@ angular.module('converterApp')
         return +(Math.round(value + 'e+' + decimal) + 'e-' + decimal);
       },
 
+      /**
+       * Returns a list of units
+       * @return {Array} list of units
+       */
       getUnitsSelect: function() {
         var units = [],
             unit;
