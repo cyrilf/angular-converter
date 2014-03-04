@@ -15,6 +15,9 @@ angular.module('converterApp')
     $scope.$watch('category', function(category) {
       $scope.currentConverter = converterManager.getConverter(category.value);
       $scope.units   = $scope.currentConverter.getUnitsSelect();
+      // When unitIn is updated, his $watch function run a converter.convert()
+      // before the unitOut was set on this converter. This line fix it.
+      $scope.currentConverter.setUnitOut($scope.units[1].value);
       $scope.unitIn  = $scope.units[0];
       $scope.unitOut = $scope.units[1];
     });
