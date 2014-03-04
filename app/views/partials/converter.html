@@ -1,9 +1,19 @@
-<select ng-model="category"
-        ng-options="category.text for category in categories" />
-<br>
-<input type="text" ng-model="valueIn" ng-change="markEdited('in')">
-<select ng-model="unitIn"
-        ng-options="unit.text for unit in units" />
-<input type="text" ng-model="valueOut" ng-change="markEdited('out')">
-<select ng-model="unitOut"
-        ng-options="unit.text for unit in units" />
+<div class="converter">
+  <select ng-model="category"
+          ng-options="category.text for category in categories"
+          class="category" />
+  <br>
+  <div class="converter-section converter-left">
+    <input type="text" ng-model="valueIn" ng-change="markEdited('in')" class="value-in">
+    <select ng-model="unitIn"
+            ng-options="unit.text for unit in units"
+            class="unit-in" />
+  </div>
+  <div class="converter-equality">=</div>
+  <div class="converter-section converter-right">
+    <input type="text" ng-model="valueOut" ng-change="markEdited('out')" class="value-out">
+    <select ng-model="unitOut"
+            ng-options="unit.text for unit in units"
+            class="unit-out" />
+  </div>
+</div>

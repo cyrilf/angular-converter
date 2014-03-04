@@ -44,7 +44,6 @@ body {
 /* Main marketing message and sign up button */
 .jumbotron {
   text-align: center;
-  border-bottom: 1px solid #e5e5e5;
 }
 .jumbotron .btn {
   font-size: 21px;
@@ -75,5 +74,114 @@ body {
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;
+  }
+}
+
+.jumbotron {
+  background-color: inherit;
+}
+
+/********************
+    CONVERTER STYLE
+ *******************/
+
+ .main-color {
+  color: #27ae60;
+ }
+
+.converter {
+  display: inline-block;
+  padding: 23px;
+  border: 1px solid whitesmoke;
+  -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.2);
+  box-shadow: 0 1px 4px rgba(0,0,0,.2);
+  line-height: 1.2;
+}
+
+.converter .category {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.converter select {
+  padding: 5px 0 5px 5px;
+  border: 1px solid gainsboro;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background: url(../images/arrow-up-down.png) 100% no-repeat whitesmoke;
+  background-color: whitesmoke;
+  background-image: -webkit-linear-gradient(top, whitesmoke, #f1f1f1);
+  background-image: linear-gradient(top, whitesmoke, #f1f1f1);
+  background-position-x: 97%;
+  font-size: 13px;
+  font: -webkit-small-control;
+  appearance:button;
+  -moz-appearance:button;
+  -webkit-appearance: button;
+}
+
+.converter select:focus {
+  border-color: #27ae60;
+}
+
+.converter .converter-section {
+  float: left;
+  width: 211px;
+}
+
+.converter .converter-section input {
+  box-sizing: content-box;
+  padding: 1px 6px;
+  width: 197px;
+  height: 40px;
+  border: 1px solid #D9D9D9;
+  border-top: 1px solid silver;
+  -webkit-border-radius: 2px 2px 0 0;
+  border-radius: 2px 2px 0 0;
+  text-align: center;
+  font-size: 19px;
+  -webkit-appearance: textfield;
+}
+
+.converter .converter-section input:focus {
+  border-color: #27ae60;
+}
+
+.converter .converter-section select {
+  position: relative;
+  top: -1px;
+  width: 211px;
+  -webkit-border-radius: 0 0 2px 2px;
+  border-radius: 0 0 2px 2px;
+}
+
+.converter .converter-equality {
+  float: left;
+  width: 27px;
+  color: #878787;
+  font-size: 26px;
+  line-height: 44px;
+}
+
+@media all and (max-width: 587px) {
+  .converter-section {
+    margin-left: 5%;
+  }
+
+  .converter .converter-equality {
+    clear: both;
+    margin-left: 43%;
+  }
+}
+
+@media all and (max-width: 370px) {
+  .converter-section {
+    margin-left: 2%;
+  }
+}
+
+@media all and (max-width: 355px) {
+  .converter-section {
+    margin-left: 0;
   }
 }
