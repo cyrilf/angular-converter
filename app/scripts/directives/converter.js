@@ -3,7 +3,7 @@
 angular.module('converterApp')
   .directive('converter', ['converterManager', function (converterManager) {
     return {
-      templateUrl: '/views/partials/converter.html',
+      templateUrl: './views/partials/converter.html',
       restrict: 'EA',
       scope: {},
       link: function(scope) {

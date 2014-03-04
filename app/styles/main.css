@@ -108,10 +108,10 @@ body {
   border: 1px solid gainsboro;
   -webkit-border-radius: 2px;
   border-radius: 2px;
-  background: url(../images/arrow-up-down.png) 100% no-repeat whitesmoke;
   background-color: whitesmoke;
   background-image: -webkit-linear-gradient(top, whitesmoke, #f1f1f1);
   background-image: linear-gradient(top, whitesmoke, #f1f1f1);
+  background: url(../images/arrow-up-down.png) 100% no-repeat whitesmoke;
   background-position-x: 97%;
   font-size: 13px;
   font: -webkit-small-control;
