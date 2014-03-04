@@ -3,9 +3,12 @@
 angular.module('converterApp')
   .factory('AbstractConverter', function AbstractConverterF(Class) {
     var AbstractConverter = Class.extend({
-      unitIn: '',
+
+      id:      '',
+      name:    '',
+      units:   {},
+      unitIn:  '',
       unitOut: '',
-      rules: {},
 
       /**
        * Convert the value based on the units (in and out) and the specific rules
@@ -17,11 +20,10 @@ angular.module('converterApp')
         var ratio = 1;
         isValueIn = (isValueIn === false) ? false : true;
 
-        if(isValueIn === true) {
-          ratio = this.rules[this.unitIn] / this.rules[this.unitOut];
-        } else {
-          ratio = this.rules[this.unitOut] / this.rules[this.unitIn];
-        }
+        var ruleIn  = this.units[this.unitIn]  ? this.units[this.unitIn].value  : 1;
+        var ruleOut = this.units[this.unitOut] ? this.units[this.unitOut].value : 1;
+
+        ratio = (isValueIn === true) ? ruleIn / ruleOut : ruleOut / ruleIn;
 
         var result = ratio * value;
 
@@ -37,6 +39,18 @@ angular.module('converterApp')
       round: function(value, decimal) {
         decimal = decimal || 4;
         return +(Math.round(value + 'e+' + decimal) + 'e-' + decimal);
+      },
+
+      getUnitsSelect: function() {
+        var units = [],
+            unit;
+
+        angular.forEach(this.units, function(obj, id) {
+          unit = { value: id, text: obj.text };
+          units.push(unit);
+        });
+
+        return units;
       },
 
       /**

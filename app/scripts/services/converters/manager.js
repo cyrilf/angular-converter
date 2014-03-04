@@ -4,8 +4,8 @@ angular.module('converterApp')
   .service('converterManager', ['LengthConverter', 'TemperatureConverter', 'MassConverter', 'SpeedConverter', 'VolumeConverter', 'AreaConverter', 'TimeConverter', 'DigitalStorageConverter',
                                 function converterManager(LengthConverter, TemperatureConverter, MassConverter, SpeedConverter, VolumeConverter, AreaConverter, TimeConverter, DigitalStorageConverter) {
     this.converters = {
-      'length'         : new LengthConverter(),
       'temperature'    : new TemperatureConverter(),
+      'length'         : new LengthConverter(),
       'mass'           : new MassConverter(),
       'speed'          : new SpeedConverter(),
       'volume'         : new VolumeConverter(),
@@ -22,5 +22,17 @@ angular.module('converterApp')
      */
     this.getConverter = function(type) {
       return this.converters[type] || this.converters[Object.keys(this.converters)[0]];
+    };
+
+    this.getCategories = function() {
+      var categories = [],
+          category;
+
+      angular.forEach(this.converters, function(converter) {
+        category = { value: converter.id, text: converter.name };
+        categories.push(category);
+      });
+
+      return categories;
     };
   }]);

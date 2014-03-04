@@ -20,7 +20,7 @@ describe('Service: converterManager', function () {
   });
 
   it('should return the first converter if the one requested doesn\'t exist', function() {
-    var converter        = converterManager.getConverter('length');
+    var converter        = converterManager.getConverter('temperature');
     var defaultConverter = converterManager.getConverter('fakeType');
 
     expect(converter).toEqual(defaultConverter);

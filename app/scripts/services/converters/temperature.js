@@ -6,14 +6,20 @@ angular.module('converterApp')
 
     return AbstractConverter.extend({
 
-
+      id:   'temperature',
+      name: 'Temperature',
+      units: {
+        'celsius'   : { text: 'Celsius'    },
+        'fahrenheit': { text: 'Fahrenheit' },
+        'kelvin'    : { text: 'Kelvin'     }
+      },
       rules: {
         'celsius-fahrenheit' : function(value) { return (+value * 9 / 5) + 32; },
         'fahrenheit-celsius' : function(value) { return (+value - 32) * 5 / 9; },
         'celsius-kelvin'     : function(value) { return +value + 273.15; },
         'kelvin-celsius'     : function(value) { return +value - 273.15; },
-        'fahrenheit-kelvin'  : function(value) { var celsius = this['fahrenheit-celsius'](value); celsius = this['celsius-kelvin'](celsius); return celsius; },
-        'kelvin-fahrenheit'  : function(value) { var celsius = this['kelvin-celsius'](value); celsius = this['celsius-fahrenheit'](celsius); return celsius; }
+        'fahrenheit-kelvin'  : function(value) { var celsius = this['fahrenheit-celsius'](value); return this['celsius-kelvin'](celsius); },
+        'kelvin-fahrenheit'  : function(value) { var celsius = this['kelvin-celsius'](value);     return this['celsius-fahrenheit'](celsius); }
       },
 
       convert: function(value, isValueIn) {

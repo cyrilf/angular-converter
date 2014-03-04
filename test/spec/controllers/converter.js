@@ -18,6 +18,8 @@ describe('Controller: ConverterCtrl', function () {
 
   it('should have default model set to valid values', function () {
     expect(scope.valueIn).toEqual(1);
+    // unitIn and unitOut are set on a $watch function, scope has to $digest first
+    scope.$digest();
     expect(scope.unitIn.value).toEqual('kilometer');
     expect(scope.unitOut.value).toEqual('meter');
   });

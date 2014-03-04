@@ -3,124 +3,21 @@
 angular.module('converterApp')
   .controller('ConverterCtrl', ['$scope', 'converterManager',
                                 function ($scope, converterManager) {
-    // Var assignements
-    $scope.categories = [
-      { value: 'temperature'    , text: 'Temperature'     },
-      { value: 'length'         , text: 'Length'          },
-      { value: 'mass'           , text: 'Mass'            },
-      { value: 'speed'          , text: 'Speed'           },
-      { value: 'volume'         , text: 'Volume'          },
-      { value: 'area'           , text: 'Area'            },
-      { value: 'time'           , text: 'Time'            },
-      { value: 'digitalStorage' , text: 'Digital storage' }
-    ];
-    $scope.category = $scope.categories[1];
+
+    $scope.categories = converterManager.getCategories();
+    $scope.category   = $scope.categories[1];
 
     $scope.valueIn  = 1;
     $scope.valueOut = undefined;
 
-    $scope.units = {
-      'temperature': [
-        { value: 'celsius'    , text: 'Celsius'    },
-        { value: 'fahrenheit' , text: 'Fahrenheit' },
-        { value: 'kelvin'     , text: 'Kelvin'     }
-      ],
-      'length': [
-        { value: 'kilometer'    , text: 'Kilometer'     },
-        { value: 'meter'        , text: 'Meter'         },
-        { value: 'centimeter'   , text: 'Centimeter'    },
-        { value: 'millimeter'   , text: 'Millimeter'    },
-        { value: 'mile'         , text: 'Mile'          },
-        { value: 'yard'         , text: 'Yard'          },
-        { value: 'foot'         , text: 'Foot'          },
-        { value: 'inch'         , text: 'Inch'          },
-        { value: 'nauticalMile' , text: 'Nautical mile' }
-      ],
-      'mass': [
-        { value: 'metricTon' , text: 'Metric ton' },
-        { value: 'kilogram'  , text: 'Kilogram'   },
-        { value: 'gram'      , text: 'Gram'       },
-        { value: 'milligram' , text: 'Milligram'  },
-        { value: 'mcg'       , text: 'Microgram'  },
-        { value: 'longTon'   , text: 'Long ton'   },
-        { value: 'shortTon'  , text: 'Short ton'  },
-        { value: 'stone'     , text: 'Stone'      },
-        { value: 'pound'     , text: 'Pound'      },
-        { value: 'ounce'     , text: 'Ounce'      }
-      ],
-      'speed': [
-        { value: 'milesHour' , text: 'Miles/hour'      },
-        { value: 'feetSec'   , text: 'Feet/sec'        },
-        { value: 'metersSec' , text: 'Meters/sec'      },
-        { value: 'kmHour'    , text: 'Kilometers/hour' },
-        { value: 'knot'      , text: 'Knot'            }
-      ],
-      'volume': [
-        { value: 'usGallon'       , text: 'US gallon'           },
-        { value: 'usQuart'        , text: 'US quart'            },
-        { value: 'usPint'         , text: 'US pint'             },
-        { value: 'usCup'          , text: 'US cup'              },
-        { value: 'usOunce'        , text: 'US ounce'            },
-        { value: 'usTbsp'         , text: 'US tablespoon'       },
-        { value: 'usTsp'          , text: 'US teaspoon'         },
-        { value: 'cubicMeter'     , text: 'Cubic meter'         },
-        { value: 'liter'          , text: 'Liter'               },
-        { value: 'milliliter'     , text: 'Milliliter'          },
-        { value: 'imperialGallon' , text: 'Imperial gallon'     },
-        { value: 'imperialQuart'  , text: 'Imperial quart'      },
-        { value: 'imperialPint'   , text: 'Imperial pint'       },
-        { value: 'imperialOunce'  , text: 'Imperial ounce'      },
-        { value: 'imperialTbsp'   , text: 'Imperial tablespoon' },
-        { value: 'imperialTsp'    , text: 'Imperial teaspoon'   },
-        { value: 'cubicFoot'      , text: 'Cubic foot'          },
-        { value: 'cubicInch'      , text: 'Cubic inch'          }
-      ],
-      'area': [
-        { value: 'squareKm'    , text: 'Square km'    },
-        { value: 'hectare'     , text: 'Hectare'      },
-        { value: 'squareMeter' , text: 'Square meter' },
-        { value: 'squareMile'  , text: 'Square mile'  },
-        { value: 'acre'        , text: 'Acre'         },
-        { value: 'squareYard'  , text: 'Square yard'  },
-        { value: 'squareFoot'  , text: 'Square foot'  },
-        { value: 'squareInch'  , text: 'Square inch'  }
-      ],
-      'time': [
-        { value: 'nanosecond'  , text: 'Nanosecond'  },
-        { value: 'microsecond' , text: 'Microsecond' },
-        { value: 'millisecond' , text: 'Millisecond' },
-        { value: 'second'      , text: 'Second'      },
-        { value: 'minute'      , text: 'Minute'      },
-        { value: 'hour'        , text: 'Hour'        },
-        { value: 'day'         , text: 'Day'         },
-        { value: 'week'        , text: 'Week'        },
-        { value: 'month'       , text: 'Month'       },
-        { value: 'year'        , text: 'Year'        },
-        { value: 'decade'      , text: 'Decade'      },
-        { value: 'century'     , text: 'Century'     }
-      ],
-      'digitalStorage': [
-        { value: 'bit'      , text: 'Bit'      },
-        { value: 'byte'     , text: 'Byte'     },
-        { value: 'kilobit'  , text: 'Kilobit'  },
-        { value: 'kilobyte' , text: 'Kilobyte' },
-        { value: 'megabit'  , text: 'Megabit'  },
-        { value: 'megabyte' , text: 'Megabyte' },
-        { value: 'gigabit'  , text: 'Gigabit'  },
-        { value: 'gigabyte' , text: 'Gigabyte' },
-        { value: 'terabit'  , text: 'Terabit'  },
-        { value: 'terabyte' , text: 'Terabyte' },
-        { value: 'petabit'  , text: 'Petabit'  },
-        { value: 'petabyte' , text: 'Petabyte' }
-      ]
-    };
+    $scope.units = [];
 
-    $scope.updateUnits = function() {
-      $scope.unitIn  = $scope.units[$scope.category.value][0];
-      $scope.unitOut = $scope.units[$scope.category.value][1];
-    };
-
-    $scope.updateUnits();
+    $scope.$watch('category', function(category) {
+      $scope.currentConverter = converterManager.getConverter(category.value);
+      $scope.units   = $scope.currentConverter.getUnitsSelect();
+      $scope.unitIn  = $scope.units[0];
+      $scope.unitOut = $scope.units[1];
+    });
 
     // Handle which input is being edited
     $scope.edited = undefined;
@@ -131,46 +28,33 @@ angular.module('converterApp')
     // Watcher for the 2 value inputs
     $scope.$watch('valueIn', function(value) {
       if($scope.edited === 'in') {
-        updateValueOut(value);
+        $scope.valueOut = $scope.currentConverter.convert(value);
       }
     });
 
     $scope.$watch('valueOut', function(value) {
       if($scope.edited === 'out') {
-        updateValueIn(value);
+        $scope.valueIn = $scope.currentConverter.convert(value, false);
       }
     });
 
     // Watcher for the 2 units inputs
     $scope.$watch('unitIn', function(unit, oldUnit) {
-      // Retrieve the current converter (based on the category)
-      var converter = converterManager.getConverter($scope.category.value);
-      converter.setUnitIn(unit.value);
+      $scope.currentConverter.setUnitIn(unit.value);
       // If the unit in and out are equal, we switch them
       if(unit.value === $scope.unitOut.value) {
         $scope.unitOut = oldUnit;
       }
 
-      updateValueOut($scope.valueIn);
+      $scope.valueOut = $scope.currentConverter.convert($scope.valueIn);
     });
 
     $scope.$watch('unitOut', function(unit, oldUnit) {
-      var converter = converterManager.getConverter($scope.category.value);
-      converter.setUnitOut(unit.value);
+      $scope.currentConverter.setUnitOut(unit.value);
       if(unit.value === $scope.unitIn.value) {
         $scope.unitIn = oldUnit;
       }
 
-      updateValueOut($scope.valueIn);
+      $scope.valueOut = $scope.currentConverter.convert($scope.valueIn);
     });
-
-    function updateValueIn(value) {
-      var converter = converterManager.getConverter($scope.category.value);
-      $scope.valueIn = converter.convert(value, false);
-    }
-
-    function updateValueOut(value) {
-      var converter = converterManager.getConverter($scope.category.value);
-      $scope.valueOut = converter.convert(value);
-    }
   }]);

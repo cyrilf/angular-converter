@@ -6,13 +6,14 @@ angular.module('converterApp')
 
     return AbstractConverter.extend({
 
-
-      rules: {
-        milesHour : 1.60934,
-        feetSec   : 1.09728,
-        metersSec : 3.6,
-        kmHour    : 1,
-        knot      : 1.852
+      id:   'speed',
+      name: 'Speed',
+      units: {
+        'milesHour': { text: 'Miles/hour'     , value: 1.60934 },
+        'feetSec'  : { text: 'Feet/sec'       , value: 1.09728 },
+        'metersSec': { text: 'Meters/sec'     , value: 3.6     },
+        'kmHour'   : { text: 'Kilometers/hour', value: 1       },
+        'knot'     : { text: 'Knot'           , value: 1.852   }
       }
     });
   }]);

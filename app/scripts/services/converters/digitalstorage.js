@@ -5,19 +5,22 @@ angular.module('converterApp')
                               function DigitalStorageConverterF(AbstractConverter) {
 
     return AbstractConverter.extend({
-      rules: {
-        'bit'      : 0.0000009536743164,
-        'byte'     : 0.000007629394531,
-        'kilobit'  : 0.0009765625,
-        'kilobyte' : 0.0078125,
-        'megabit'  : 1,
-        'megabyte' : 8,
-        'gigabit'  : 1024,
-        'gigabyte' : 8192,
-        'terabit'  : 1048580,
-        'terabyte' : 8388610,
-        'petabit'  : 1073741800,
-        'petabyte' : 8589934600,
+
+      id: 'digitalStorage',
+      name: 'Digital Storage',
+      units: {
+        'bit'     : { text: 'Bit'     , value: 0.0000009536743164 },
+        'byte'    : { text: 'Byte'    , value: 0.000007629394531  },
+        'kilobit' : { text: 'Kilobit' , value: 0.0009765625       },
+        'kilobyte': { text: 'Kilobyte', value: 0.0078125          },
+        'megabit' : { text: 'Megabit' , value: 1                  },
+        'megabyte': { text: 'Megabyte', value: 8                  },
+        'gigabit' : { text: 'Gigabit' , value: 1024               },
+        'gigabyte': { text: 'Gigabyte', value: 8192               },
+        'terabit' : { text: 'Terabit' , value: 1048580            },
+        'terabyte': { text: 'Terabyte', value: 8388610            },
+        'petabit' : { text: 'Petabit' , value: 1073741800         },
+        'petabyte': { text: 'Petabyte', value: 8589934600         }
       }
     });
   }]);

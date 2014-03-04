@@ -6,17 +6,18 @@ angular.module('converterApp')
 
     return AbstractConverter.extend({
 
-
-      rules: {
-        kilometer    : 1000,
-        meter        : 1,
-        centimeter   : 0.01,
-        millimeter   : 0.001,
-        mile         : 1609.34,
-        yard         : 0.9144,
-        foot         : 0.3048,
-        inch         : 0.0254,
-        nauticalMile : 1852
+      id:   'length',
+      name: 'Length',
+      units: {
+        'kilometer'    : { text: 'Kilometer'    , value: 1000    },
+        'meter'        : { text: 'Meter'        , value: 1       },
+        'centimeter'   : { text: 'Centimeter'   , value: 0.01    },
+        'millimeter'   : { text: 'Millimeter'   , value: 0.001   },
+        'mile'         : { text: 'Mile'         , value: 1609.34 },
+        'yard'         : { text: 'Yard'         , value: 0.9144  },
+        'foot'         : { text: 'Foot'         , value: 0.3048  },
+        'inch'         : { text: 'Inch'         , value: 0.0254  },
+        'nauticalMile' : { text: 'Nautical mile', value: 1852    }
       }
     });
   }]);
