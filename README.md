@@ -2,6 +2,9 @@
 
 ####Converter is an angular app to convert values in different units
 
+![Angular Converter](https://raw.github.com/cyrilf/converter/master/angular-converter.png)
+
+
 Inspired by the Google converter that we can find on Google page result
 
 The converters currently available are:
