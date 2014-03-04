@@ -10,8 +10,7 @@ angular.module('converterApp', [
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'ConverterCtrl'
+        templateUrl: 'views/main.html'
       })
       .otherwise({
         redirectTo: '/'
