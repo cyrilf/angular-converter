@@ -38,7 +38,7 @@ angular.module('converterApp')
        */
       round: function(value, decimal) {
         decimal = decimal || 4;
-        return +(Math.round(value + 'e+' + decimal) + 'e-' + decimal);
+        return Number((+value).toFixed(decimal));
       },
 
       /**
