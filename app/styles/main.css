@@ -98,6 +98,10 @@ body {
   line-height: 1.2;
 }
 
+.converter input:focus, .converter select:focus {
+  outline: 0;
+}
+
 .converter .category {
   margin-bottom: 10px;
   width: 100%;
