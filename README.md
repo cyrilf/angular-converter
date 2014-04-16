@@ -2,7 +2,7 @@
 
 ####Converter is an angular app to convert values in different units
 
-[![Angular Converter](https://raw.github.com/cyrilf/angular-converter/master/angular-converter.png)](http://angularconverter.cyrilf.com)
+[![Angular Converter](https://raw.github.com/cyrilf/angular-converter/master/angular-converter.png)](http://angular-converter.cyrilf.com)
 
 Inspired by the Google converter that we can find on Google page result
 
