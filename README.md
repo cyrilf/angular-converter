@@ -6,7 +6,7 @@
 
 Inspired by the Google converter that we can find on Google page result
 
-You can see a [live version here](http://angularconverter.cyrilf.com).
+You can see a [live version here](http://angular-converter.cyrilf.com).
 
 
 The currently available converters are:
